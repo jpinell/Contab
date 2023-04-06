@@ -1,4 +1,4 @@
-﻿using Presentacion;
+﻿using CapaPresentacion;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,7 @@ namespace CapaPresentacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Empresa());
+            Application.Run(new Forms.Empresa ());
         }
     }
 }

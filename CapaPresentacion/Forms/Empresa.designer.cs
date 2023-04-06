@@ -1,4 +1,4 @@
-﻿namespace Presentacion
+﻿namespace CapaPresentacion.Forms
 {
     partial class Empresa
     {
