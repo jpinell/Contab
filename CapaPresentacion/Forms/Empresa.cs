@@ -50,7 +50,7 @@ namespace CapaPresentacion.Forms
             objEntidad.Nombre = NombreTextBox.Text;
             objEntidad.Direccion = DireccionTextBox.Text;
             objEntidad.Telefono = TelefonoTextBox.Text;
-            objEntidad.Ruc = RucTextBox.Text;
+            objEntidad.Ruc =  RucTextBox.Text.ToUpper() ;
 
             bool valido = new Helpers.ValidacionDatos(objEntidad).Validate();
             if (valido)
@@ -74,7 +74,7 @@ namespace CapaPresentacion.Forms
             objEntidad.Nombre = NombreTextBox.Text;
             objEntidad.Direccion = DireccionTextBox.Text;
             objEntidad.Telefono = TelefonoTextBox.Text;
-            objEntidad.Ruc = RucTextBox.Text;
+            objEntidad.Ruc = RucTextBox.Text.ToUpper ();
 
             bool valido = new Helpers.ValidacionDatos(objEntidad).Validate();
             if (valido)
