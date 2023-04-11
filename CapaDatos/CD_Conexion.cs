@@ -5,7 +5,7 @@ namespace CapaDatos
 {
     public class CD_Conexion
     {
-        private SqlConnection Conexion = new SqlConnection("Data Source=(local);Initial Catalog=Contabilidad;Integrated Security=True");
+        private SqlConnection Conexion = new SqlConnection("Data Source=(local);Initial Catalog=dbContable;Integrated Security=True");
 
         public SqlConnection Conectar()
         {
