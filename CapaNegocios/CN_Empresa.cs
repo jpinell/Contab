@@ -11,9 +11,10 @@ namespace CapaNegocios
 
         public DataTable MostrarDatos()
         {
-            DataTable tabla = new DataTable();
-            tabla = empresa.MostrarDatos();
-            return tabla;
+            //DataTable tabla = new DataTable();
+            //tabla = empresa.MostrarDatos();
+            //return tabla;
+            return empresa.MostrarDatos();
         }
 
         public void InsertarEmpresa(CE_Empresa emp)

@@ -50,7 +50,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CN_Botones.cs" />
+    <Compile Include="CN_Catalogo.cs" />
+    <Compile Include="CN_Clases.cs" />
+    <Compile Include="CN_Clasificacion.cs" />
     <Compile Include="CN_Empresa.cs" />
+    <Compile Include="CN_Estructura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

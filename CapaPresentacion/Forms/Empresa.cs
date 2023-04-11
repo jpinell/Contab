@@ -12,8 +12,8 @@ namespace CapaPresentacion.Forms
             InitializeComponent();
         }
 
-        CE_Empresa objEntidad = new CE_Empresa();
-        CN_Empresa objNegocio = new CN_Empresa();
+        readonly CE_Empresa objEntidad = new CE_Empresa();
+        readonly CN_Empresa objNegocio = new CN_Empresa();
         int vIDEmpresa;
 
         private void Empresa_Load(object sender, EventArgs e)

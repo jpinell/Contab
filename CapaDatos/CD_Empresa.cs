@@ -8,7 +8,7 @@ namespace CapaDatos
     {
         //SqlDataReader leer;
         readonly DataTable tabla = new DataTable();
-        readonly SqlCommand cmd = new SqlCommand();
+        //readonly SqlCommand cmd = new SqlCommand();
 
         public DataTable MostrarDatos()
         {
