@@ -11,7 +11,7 @@ namespace CapaDatos
         public DataTable MostrarDatos()
         {
             tabla.Clear();
-            SqlCommand cmd = new SqlCommand("spMostrarCatalogo", Conectar());
+            SqlCommand cmd = new SqlCommand("MostrarCatalogo", Conectar());
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(tabla);
@@ -21,7 +21,7 @@ namespace CapaDatos
 
         public void Insertar(CE_Catalogo cat)
         {
-            SqlCommand cmd = new SqlCommand("spInsertCatalogo", Conectar())
+            SqlCommand cmd = new SqlCommand("InsertCatalogo", Conectar())
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -40,7 +40,7 @@ namespace CapaDatos
 
         public void Actualizar(CE_Catalogo cat)
         {
-            SqlCommand cmd = new SqlCommand("spUpdateCatalogo", Conectar())
+            SqlCommand cmd = new SqlCommand("UpdateCatalogo", Conectar())
             {
                 CommandType = CommandType.StoredProcedure
             };
@@ -60,7 +60,7 @@ namespace CapaDatos
 
         public void Eliminar(int id)
         {
-            SqlCommand cmd = new SqlCommand("spDeleteCatalogo", Conectar())
+            SqlCommand cmd = new SqlCommand("DeleteCatalogo", Conectar())
             {
                 CommandType = CommandType.StoredProcedure
             };

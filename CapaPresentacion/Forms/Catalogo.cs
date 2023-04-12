@@ -1,6 +1,5 @@
 ﻿using CapaNegocios;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace CapaPresentacion.Forms
@@ -14,7 +13,8 @@ namespace CapaPresentacion.Forms
 
         readonly CN_Clasificacion objCla = new CN_Clasificacion();
         readonly CN_Estructura objEst = new CN_Estructura();
-        readonly CN_Clases objClase = new CN_Clases ();
+        readonly CN_Clases objClase = new CN_Clases();
+        readonly CN_Catalogo objCat = new CN_Catalogo();
 
 
         int vClasificacion;
@@ -26,6 +26,12 @@ namespace CapaPresentacion.Forms
             CargarComboClasificacion();
             CargarComboEstructura();
             CargarComboClases();
+            CargarGrillaCatalogo();
+        }
+
+        private void CargarGrillaCatalogo()
+        {
+            CatalogoDataGridView.DataSource=objCat.MostrarDatos();
         }
 
         private void CargarComboClasificacion()
@@ -44,7 +50,7 @@ namespace CapaPresentacion.Forms
         }
         private void CargarComboClases()
         {
-            ClasesComboBox.DataSource = objClase .MostrarDatos();
+            ClasesComboBox.DataSource = objClase.MostrarDatos();
             ClasesComboBox.DisplayMember = "Clase";
             ClasesComboBox.ValueMember = "IDClase";
             ClasesComboBox.SelectedIndex = -1;
@@ -52,18 +58,18 @@ namespace CapaPresentacion.Forms
         private void ClasificacionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             vClasificacion = ClasificacionComboBox.SelectedIndex + 1;
-            label2.Text = vClasificacion.ToString();
+            //label2.Text = vClasificacion.ToString();
         }
         private void EstructuraComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             vNivel = EstructuraComboBox.SelectedIndex + 1;
-            label4.Text = vNivel.ToString();
+
         }
 
         private void ClasesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             vClase = ClasesComboBox.SelectedIndex + 1;
-            label5.Text = vClase.ToString();
+
         }
     }
 }
