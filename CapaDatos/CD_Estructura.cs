@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using CapaEntidades;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace CapaDatos
@@ -17,5 +18,17 @@ namespace CapaDatos
             Desconectar();
             return tabla;
         }
+
+        public int Digitos(int id)
+        {
+            
+            SqlCommand cmd = new SqlCommand("ScalarDigitoByNivel", Conectar());
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@IDNivel", id);
+            int digito = (int)cmd.ExecuteScalar();
+            Desconectar();
+            return digito;
+        }
+
     }
 }

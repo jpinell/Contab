@@ -37,6 +37,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.CatalogoDataGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.DigitosTextBox = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -89,6 +90,7 @@
             this.EstructuraComboBox.Size = new System.Drawing.Size(231, 23);
             this.EstructuraComboBox.TabIndex = 3;
             this.EstructuraComboBox.SelectedIndexChanged += new System.EventHandler(this.EstructuraComboBox_SelectedIndexChanged);
+            this.EstructuraComboBox.SelectedValueChanged += new System.EventHandler(this.EstructuraComboBox_SelectedValueChanged);
             // 
             // label3
             // 
@@ -148,6 +150,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.DigitosTextBox);
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label3);
@@ -160,6 +163,13 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(293, 481);
             this.panel2.TabIndex = 10;
+            // 
+            // DigitosTextBox
+            // 
+            this.DigitosTextBox.Location = new System.Drawing.Point(253, 35);
+            this.DigitosTextBox.Name = "DigitosTextBox";
+            this.DigitosTextBox.Size = new System.Drawing.Size(37, 23);
+            this.DigitosTextBox.TabIndex = 9;
             // 
             // panel4
             // 
@@ -321,6 +331,7 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CatalogoDataGridView)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -353,5 +364,6 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox DigitosTextBox;
     }
 }

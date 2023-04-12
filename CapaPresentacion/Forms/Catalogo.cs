@@ -31,7 +31,7 @@ namespace CapaPresentacion.Forms
 
         private void CargarGrillaCatalogo()
         {
-            CatalogoDataGridView.DataSource=objCat.MostrarDatos();
+            CatalogoDataGridView.DataSource = objCat.MostrarDatos();
         }
 
         private void CargarComboClasificacion()
@@ -46,7 +46,8 @@ namespace CapaPresentacion.Forms
             EstructuraComboBox.DataSource = objEst.MostrarDatos();
             EstructuraComboBox.DisplayMember = "Clasificacion";
             EstructuraComboBox.ValueMember = "IDNivel";
-            EstructuraComboBox.SelectedIndex = -1;
+            //EstructuraComboBox.SelectedIndex = -1;
+
         }
         private void CargarComboClases()
         {
@@ -62,7 +63,8 @@ namespace CapaPresentacion.Forms
         }
         private void EstructuraComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            vNivel = EstructuraComboBox.SelectedIndex + 1;
+           
+
 
         }
 
@@ -70,6 +72,18 @@ namespace CapaPresentacion.Forms
         {
             vClase = ClasesComboBox.SelectedIndex + 1;
 
+        }
+
+        private void EstructuraComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            vNivel = EstructuraComboBox.SelectedIndex + 1;
+            try
+            {
+                DigitosTextBox.Text = objEst.NumeroDigitos(vNivel).ToString();
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }
