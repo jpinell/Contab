@@ -66,6 +66,7 @@
     <Compile Include="Forms\Catalogo.Designer.cs">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Digitos.cs" />
     <Compile Include="Helpers\ValidacionDatos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -11,5 +11,10 @@ namespace CapaNegocios
         public DataTable MostrarDatos() => estructura.MostrarDatos();
 
         public int NumeroDigitos(int id) => estructura.Digitos(id);
+
+        //public void MaxDigitos(CE_Estructura e) 
+        //{
+        //    e.
+        //}
     }
 }

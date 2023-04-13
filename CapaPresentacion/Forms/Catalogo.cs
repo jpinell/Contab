@@ -1,5 +1,8 @@
-﻿using CapaNegocios;
+﻿using CapaEntidades;
+using CapaNegocios;
+using CapaPresentacion.Helpers;
 using System;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace CapaPresentacion.Forms
@@ -14,12 +17,15 @@ namespace CapaPresentacion.Forms
         readonly CN_Clasificacion objCla = new CN_Clasificacion();
         readonly CN_Estructura objEst = new CN_Estructura();
         readonly CN_Clases objClase = new CN_Clases();
-        readonly CN_Catalogo objCat = new CN_Catalogo();
 
+        readonly CN_Catalogo objNegocio = new CN_Catalogo();
+        readonly CE_Catalogo objEntidad = new CE_Catalogo();
 
         int vClasificacion;
         int vNivel;
         int vClase;
+        char vNaturaleza;
+        bool vAfectable;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -27,11 +33,14 @@ namespace CapaPresentacion.Forms
             CargarComboEstructura();
             CargarComboClases();
             CargarGrillaCatalogo();
+            //ClasificacionComboBox.SelectedIndex = -1;
+            //EstructuraComboBox.SelectedIndex = -1;
+            //ClasesComboBox.SelectedIndex = -1;
         }
 
         private void CargarGrillaCatalogo()
         {
-            CatalogoDataGridView.DataSource = objCat.MostrarDatos();
+            CatalogoDataGridView.DataSource = objNegocio.MostrarDatos();
         }
 
         private void CargarComboClasificacion()
@@ -39,51 +48,98 @@ namespace CapaPresentacion.Forms
             ClasificacionComboBox.DataSource = objCla.MostrarDatos();
             ClasificacionComboBox.DisplayMember = "Clasificacion";
             ClasificacionComboBox.ValueMember = "IDClasificacion";
-            ClasificacionComboBox.SelectedIndex = -1;
+
         }
         private void CargarComboEstructura()
         {
             EstructuraComboBox.DataSource = objEst.MostrarDatos();
             EstructuraComboBox.DisplayMember = "Clasificacion";
             EstructuraComboBox.ValueMember = "IDNivel";
-            //EstructuraComboBox.SelectedIndex = -1;
-
         }
         private void CargarComboClases()
         {
             ClasesComboBox.DataSource = objClase.MostrarDatos();
             ClasesComboBox.DisplayMember = "Clase";
             ClasesComboBox.ValueMember = "IDClase";
-            ClasesComboBox.SelectedIndex = -1;
         }
         private void ClasificacionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             vClasificacion = ClasificacionComboBox.SelectedIndex + 1;
-            //label2.Text = vClasificacion.ToString();
         }
         private void EstructuraComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
-
-
+            vNivel = EstructuraComboBox.SelectedIndex + 1;
+            DigitosTextBox.Text = objEst.NumeroDigitos(vNivel).ToString();
+            CodigoMax(vNivel);
         }
 
         private void ClasesComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             vClase = ClasesComboBox.SelectedIndex + 1;
-
+        }
+        private void CodigoMax(int vNivel)
+        {
+            switch (vNivel)
+            {
+                case 1:
+                    CodigoTextBox.MaxLength = (int)Digitos.grupo;
+                    break;
+                case 2:
+                    CodigoTextBox.MaxLength = (int)Digitos.subgrupo;
+                    break;
+                case 3:
+                    CodigoTextBox.MaxLength = (int)Digitos.mayor;
+                    break;
+                case 4:
+                    CodigoTextBox.MaxLength = (int)Digitos.auxiliar;
+                    break;
+                case 5:
+                    CodigoTextBox.MaxLength = (int)Digitos.cuenta;
+                    break;
+            }
         }
 
-        private void EstructuraComboBox_SelectedValueChanged(object sender, EventArgs e)
+        private void NaturalezaComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            vNivel = EstructuraComboBox.SelectedIndex + 1;
-            try
+            if (NaturalezaComboBox.Text == "DEUDORA")
             {
-                DigitosTextBox.Text = objEst.NumeroDigitos(vNivel).ToString();
+                vNaturaleza = 'D';
             }
-            catch (Exception)
-            {
-            }
+            else vNaturaleza = 'A';
+        }
+
+        private void GuardarButton_Click(object sender, EventArgs e)
+        {
+            //GUARDAMOS LOS DATOS EN LAS ENTIDADES
+            objEntidad.Nivel = vNivel;
+            objEntidad.Codigo = CodigoTextBox.Text;
+            objEntidad.NombreCuenta = CuentaTextBox.Text;
+            objEntidad.Clasificacion = vClasificacion;
+            objEntidad.Afectable = vAfectable;
+            objEntidad.GrupoAnterior = GrupoTextBox.Text;
+            objEntidad.Naturaleza = vNaturaleza;
+            objEntidad.Clase = vClase;
+            objEntidad.Saldo = 0;
+
+            objNegocio.InsertarCatalogo(objEntidad);
+            CargarGrillaCatalogo();
+        }
+
+        private void GrupoRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            vAfectable = false;
+        }
+
+        private void DetalleRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            vAfectable = true;
+        }
+
+        private void CatalogoDataGridView_Click(object sender, EventArgs e)
+        {
+            if (CatalogoDataGridView.Rows.Count == 0 || CatalogoDataGridView.CurrentRow == null) return;
+            vNivel = (int)CatalogoDataGridView.CurrentRow.Cells[1].Value + 1;
+            GrupoTextBox.Text  = (string)CatalogoDataGridView.CurrentRow.Cells[2].Value;
         }
     }
 }

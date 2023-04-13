@@ -39,17 +39,17 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.DigitosTextBox = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.GuardarButton = new FontAwesome.Sharp.IconButton();
+            this.NaturalezaComboBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.GrupoTextBox = new System.Windows.Forms.TextBox();
+            this.CuentaTextBox = new System.Windows.Forms.TextBox();
+            this.CodigoTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.DetalleRadioButton = new System.Windows.Forms.RadioButton();
+            this.GrupoRadioButton = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -90,7 +90,6 @@
             this.EstructuraComboBox.Size = new System.Drawing.Size(231, 23);
             this.EstructuraComboBox.TabIndex = 3;
             this.EstructuraComboBox.SelectedIndexChanged += new System.EventHandler(this.EstructuraComboBox_SelectedIndexChanged);
-            this.EstructuraComboBox.SelectedValueChanged += new System.EventHandler(this.EstructuraComboBox_SelectedValueChanged);
             // 
             // label3
             // 
@@ -145,8 +144,10 @@
             this.CatalogoDataGridView.Location = new System.Drawing.Point(0, 0);
             this.CatalogoDataGridView.Name = "CatalogoDataGridView";
             this.CatalogoDataGridView.ReadOnly = true;
+            this.CatalogoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CatalogoDataGridView.Size = new System.Drawing.Size(673, 481);
             this.CatalogoDataGridView.TabIndex = 0;
+            this.CatalogoDataGridView.Click += new System.EventHandler(this.CatalogoDataGridView_Click);
             // 
             // panel2
             // 
@@ -166,24 +167,27 @@
             // 
             // DigitosTextBox
             // 
-            this.DigitosTextBox.Location = new System.Drawing.Point(253, 35);
+            this.DigitosTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.DigitosTextBox.Enabled = false;
+            this.DigitosTextBox.Location = new System.Drawing.Point(249, 33);
             this.DigitosTextBox.Name = "DigitosTextBox";
-            this.DigitosTextBox.Size = new System.Drawing.Size(37, 23);
+            this.DigitosTextBox.Size = new System.Drawing.Size(33, 23);
             this.DigitosTextBox.TabIndex = 9;
+            this.DigitosTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.panel4.Controls.Add(this.iconButton1);
-            this.panel4.Controls.Add(this.comboBox1);
+            this.panel4.Controls.Add(this.GuardarButton);
+            this.panel4.Controls.Add(this.NaturalezaComboBox);
             this.panel4.Controls.Add(this.panel3);
-            this.panel4.Controls.Add(this.textBox3);
-            this.panel4.Controls.Add(this.textBox2);
-            this.panel4.Controls.Add(this.textBox1);
+            this.panel4.Controls.Add(this.GrupoTextBox);
+            this.panel4.Controls.Add(this.CuentaTextBox);
+            this.panel4.Controls.Add(this.CodigoTextBox);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.radioButton2);
-            this.panel4.Controls.Add(this.radioButton1);
+            this.panel4.Controls.Add(this.DetalleRadioButton);
+            this.panel4.Controls.Add(this.GrupoRadioButton);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -192,29 +196,31 @@
             this.panel4.Size = new System.Drawing.Size(293, 301);
             this.panel4.TabIndex = 1;
             // 
-            // iconButton1
+            // GuardarButton
             // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.Location = new System.Drawing.Point(98, 249);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(121, 33);
-            this.iconButton1.TabIndex = 10;
-            this.iconButton1.Text = "Guardar";
-            this.iconButton1.UseVisualStyleBackColor = false;
+            this.GuardarButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.GuardarButton.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.GuardarButton.IconColor = System.Drawing.Color.Black;
+            this.GuardarButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.GuardarButton.Location = new System.Drawing.Point(98, 249);
+            this.GuardarButton.Name = "GuardarButton";
+            this.GuardarButton.Size = new System.Drawing.Size(121, 33);
+            this.GuardarButton.TabIndex = 10;
+            this.GuardarButton.Text = "Guardar";
+            this.GuardarButton.UseVisualStyleBackColor = false;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
-            // comboBox1
+            // NaturalezaComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.NaturalezaComboBox.FormattingEnabled = true;
+            this.NaturalezaComboBox.Items.AddRange(new object[] {
             "DEUDORA",
             "ACREEDORA"});
-            this.comboBox1.Location = new System.Drawing.Point(98, 210);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
-            this.comboBox1.TabIndex = 9;
+            this.NaturalezaComboBox.Location = new System.Drawing.Point(121, 210);
+            this.NaturalezaComboBox.Name = "NaturalezaComboBox";
+            this.NaturalezaComboBox.Size = new System.Drawing.Size(98, 23);
+            this.NaturalezaComboBox.TabIndex = 9;
+            this.NaturalezaComboBox.SelectedValueChanged += new System.EventHandler(this.NaturalezaComboBox_SelectedValueChanged);
             // 
             // panel3
             // 
@@ -235,31 +241,33 @@
             this.label2.Text = "NUEVA CUENTA";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // GrupoTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(96, 175);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(123, 23);
-            this.textBox3.TabIndex = 8;
+            this.GrupoTextBox.Location = new System.Drawing.Point(121, 175);
+            this.GrupoTextBox.Name = "GrupoTextBox";
+            this.GrupoTextBox.Size = new System.Drawing.Size(98, 23);
+            this.GrupoTextBox.TabIndex = 8;
             // 
-            // textBox2
+            // CuentaTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(96, 104);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(186, 23);
-            this.textBox2.TabIndex = 7;
+            this.CuentaTextBox.Location = new System.Drawing.Point(96, 104);
+            this.CuentaTextBox.Name = "CuentaTextBox";
+            this.CuentaTextBox.Size = new System.Drawing.Size(186, 23);
+            this.CuentaTextBox.TabIndex = 7;
             // 
-            // textBox1
+            // CodigoTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 67);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 6;
+            this.CodigoTextBox.Location = new System.Drawing.Point(96, 67);
+            this.CodigoTextBox.MaxLength = 10;
+            this.CodigoTextBox.Name = "CodigoTextBox";
+            this.CodigoTextBox.Size = new System.Drawing.Size(100, 23);
+            this.CodigoTextBox.TabIndex = 6;
+            this.CodigoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(14, 213);
+            this.label8.Location = new System.Drawing.Point(37, 213);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 16);
             this.label8.TabIndex = 5;
@@ -268,33 +276,35 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(43, 178);
+            this.label7.Location = new System.Drawing.Point(11, 178);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 16);
+            this.label7.Size = new System.Drawing.Size(104, 16);
             this.label7.TabIndex = 4;
-            this.label7.Text = "Grupo:";
+            this.label7.Text = "Grupo Anterior:";
             // 
-            // radioButton2
+            // DetalleRadioButton
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(177, 133);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(68, 20);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Detalle";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.DetalleRadioButton.AutoSize = true;
+            this.DetalleRadioButton.Location = new System.Drawing.Point(177, 133);
+            this.DetalleRadioButton.Name = "DetalleRadioButton";
+            this.DetalleRadioButton.Size = new System.Drawing.Size(68, 20);
+            this.DetalleRadioButton.TabIndex = 3;
+            this.DetalleRadioButton.TabStop = true;
+            this.DetalleRadioButton.Text = "Detalle";
+            this.DetalleRadioButton.UseVisualStyleBackColor = true;
+            this.DetalleRadioButton.CheckedChanged += new System.EventHandler(this.DetalleRadioButton_CheckedChanged);
             // 
-            // radioButton1
+            // GrupoRadioButton
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(98, 133);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(63, 20);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Grupo";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.GrupoRadioButton.AutoSize = true;
+            this.GrupoRadioButton.Location = new System.Drawing.Point(98, 133);
+            this.GrupoRadioButton.Name = "GrupoRadioButton";
+            this.GrupoRadioButton.Size = new System.Drawing.Size(63, 20);
+            this.GrupoRadioButton.TabIndex = 2;
+            this.GrupoRadioButton.TabStop = true;
+            this.GrupoRadioButton.Text = "Grupo";
+            this.GrupoRadioButton.UseVisualStyleBackColor = true;
+            this.GrupoRadioButton.CheckedChanged += new System.EventHandler(this.GrupoRadioButton_CheckedChanged);
             // 
             // label5
             // 
@@ -351,17 +361,17 @@
         private System.Windows.Forms.DataGridView CatalogoDataGridView;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private FontAwesome.Sharp.IconButton GuardarButton;
+        private System.Windows.Forms.ComboBox NaturalezaComboBox;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox GrupoTextBox;
+        private System.Windows.Forms.TextBox CuentaTextBox;
+        private System.Windows.Forms.TextBox CodigoTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton DetalleRadioButton;
+        private System.Windows.Forms.RadioButton GrupoRadioButton;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox DigitosTextBox;
