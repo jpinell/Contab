@@ -55,6 +55,7 @@
     <Compile Include="CN_Clasificacion.cs" />
     <Compile Include="CN_Empresa.cs" />
     <Compile Include="CN_Estructura.cs" />
+    <Compile Include="CN_Periodo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

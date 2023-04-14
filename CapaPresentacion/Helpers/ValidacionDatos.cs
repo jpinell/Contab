@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CapaPresentacion.Helpers
@@ -30,7 +26,7 @@ namespace CapaPresentacion.Helpers
                 {
                     mensaje += result.ErrorMessage + "\n";
                 }
-                MessageBox.Show(mensaje, "Ingreso de Datos",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show(mensaje, "Ingreso de Datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             return valido;
         }

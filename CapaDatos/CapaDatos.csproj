@@ -52,6 +52,7 @@
     <Compile Include="CD_Clasificacion.cs" />
     <Compile Include="CD_Empresa.cs" />
     <Compile Include="CD_Estructura.cs" />
+    <Compile Include="CD_Periodo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

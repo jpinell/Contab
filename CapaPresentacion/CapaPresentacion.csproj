@@ -66,6 +66,12 @@
     <Compile Include="Forms\Catalogo.Designer.cs">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Periodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Periodos.Designer.cs">
+      <DependentUpon>Periodos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\Digitos.cs" />
     <Compile Include="Helpers\ValidacionDatos.cs" />
     <Compile Include="Program.cs" />
@@ -75,6 +81,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogo.resx">
       <DependentUpon>Catalogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Periodos.resx">
+      <DependentUpon>Periodos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

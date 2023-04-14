@@ -121,8 +121,13 @@ namespace CapaPresentacion.Forms
             objEntidad.Clase = vClase;
             objEntidad.Saldo = 0;
 
-            objNegocio.InsertarCatalogo(objEntidad);
-            CargarGrillaCatalogo();
+            bool valido = new Helpers.ValidacionDatos(objEntidad).Validate();
+            if (valido)
+            {
+                objNegocio.InsertarCatalogo(objEntidad);
+                CargarGrillaCatalogo();
+                MessageBox.Show("Registro guardado");
+            }
         }
 
         private void GrupoRadioButton_CheckedChanged(object sender, EventArgs e)
