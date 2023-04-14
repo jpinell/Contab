@@ -72,6 +72,12 @@
     <Compile Include="Forms\Periodos.Designer.cs">
       <DependentUpon>Periodos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PlanCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlanCuenta.Designer.cs">
+      <DependentUpon>PlanCuenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\Digitos.cs" />
     <Compile Include="Helpers\ValidacionDatos.cs" />
     <Compile Include="Program.cs" />
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Periodos.resx">
       <DependentUpon>Periodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlanCuenta.resx">
+      <DependentUpon>PlanCuenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

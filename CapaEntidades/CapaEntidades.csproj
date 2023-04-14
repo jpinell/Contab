@@ -52,7 +52,9 @@
     <Compile Include="CE_Clasificacion.cs" />
     <Compile Include="CE_Empresa.cs" />
     <Compile Include="CE_Estructura.cs" />
+    <Compile Include="CE_Grupos.cs" />
     <Compile Include="CE_Periodo.cs" />
+    <Compile Include="CE_Subgrupo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

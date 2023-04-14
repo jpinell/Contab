@@ -146,5 +146,10 @@ namespace CapaPresentacion.Forms
             vNivel = (int)CatalogoDataGridView.CurrentRow.Cells[1].Value + 1;
             GrupoTextBox.Text  = (string)CatalogoDataGridView.CurrentRow.Cells[2].Value;
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
