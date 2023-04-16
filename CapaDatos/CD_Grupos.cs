@@ -10,15 +10,17 @@ namespace CapaDatos
         public DataTable MostrarGrupos()
         {
             tabla.Clear();
-            SqlCommand cmd = new SqlCommand("MostrarGrupos", Conectar());
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand("MostrarGrupos", Conectar())
+            {
+                CommandType = CommandType.StoredProcedure
+            };
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(tabla);
             Desconectar();
 
-            DataRow fila = tabla.NewRow();
-            fila["Cuenta"] = "Seleccione un grupo";
-            tabla.Rows.InsertAt(fila, 0);
+            //DataRow fila = tabla.NewRow();
+            //fila["Cuenta"] = "Seleccione un grupo";
+            //tabla.Rows.InsertAt(fila, 0);
             return tabla;
         }
     }

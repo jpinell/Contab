@@ -1,5 +1,6 @@
 ﻿using CapaNegocios;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace CapaPresentacion.Forms
@@ -28,6 +29,7 @@ namespace CapaPresentacion.Forms
             GrupoComboBox.DataSource = grupos.MostrarGrupos();
             GrupoComboBox.DisplayMember = "Cuenta";
             GrupoComboBox.ValueMember = "IDGrupo";
+            GrupoComboBox.SelectedIndex = -1;
         }
 
         private void MostrarSubGruposByGrupos(int id)
@@ -35,62 +37,39 @@ namespace CapaPresentacion.Forms
             SubgrupoComboBox.DataSource = subgrupos.MostrarSubgrupos(id);
             SubgrupoComboBox.DisplayMember = "Cuenta";
             SubgrupoComboBox.ValueMember = "IDSubgrupo";
+            SubgrupoComboBox.SelectedIndex = -1;
         }
-
         private void GrupoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (GrupoComboBox.SelectedIndex != -1)
+            {
+                try
+                {
+                    vIDGrupo = (int)GrupoComboBox.SelectedValue;
+                    label3.Text = vIDGrupo.ToString();
+                    MostrarSubGruposByGrupos(vIDGrupo);
+                }
+                catch (InvalidCastException)
+                {
+                    return;
+                }
+            }
         }
 
         private void SubgrupoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void GrupoComboBox_SelectedValueChanged(object sender, EventArgs e)
-        {
-            //if (GrupoComboBox.SelectedValue != -1)
-            //{
-            //    vIDGrupo = (int)GrupoComboBox.SelectedIndex;
-            //    label3.Text = vIDGrupo.ToString();
-            //    MostrarSubGruposByGrupos(vIDGrupo);
-            //}
-            try
+            if (SubgrupoComboBox.SelectedIndex != -1)
             {
-                vIDGrupo = int.Parse(GrupoComboBox.SelectedValue.ToString());
-                label3.Text = vIDGrupo.ToString();
-                MostrarSubGruposByGrupos(vIDGrupo);
+                try
+                {
+                    vIDSubgrupo = (int)SubgrupoComboBox.SelectedValue;
+                    label4.Text = vIDSubgrupo.ToString();
+                }
+                catch (InvalidCastException)
+                {
+                    return;
+                }
             }
-            catch (Exception)
-            {
-
-            }
-
-
-
-        }
-
-        private void GrupoComboBox_Click(object sender, EventArgs e)
-        {
-            //if (SubgrupoComboBox.SelectedValue != null)
-            //{
-            //}
-        }
-
-        private void SubgrupoComboBox_SelectedValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                vIDSubgrupo = int.Parse(SubgrupoComboBox.SelectedValue.ToString());
-                label4.Text = vIDSubgrupo.ToString();
-
-            }
-            catch (Exception)
-            {
-
-
-            }
-
         }
     }
 }

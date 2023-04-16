@@ -11,16 +11,18 @@ namespace CapaDatos
         public DataTable MostrarSubgrupos(int id)
         {
             tabla.Clear();
-            SqlCommand cmd = new SqlCommand("MostrarSubgrupoByGrupo", Conectar());
-            cmd.CommandType = CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand("MostrarSubgrupoByGrupo", Conectar())
+            {
+                CommandType = CommandType.StoredProcedure
+            };
             cmd.Parameters.AddWithValue("Grupo", id);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             da.Fill(tabla);
             Desconectar();
 
-            DataRow fila = tabla.NewRow();
-            fila["Cuenta"] = "Seleccione un Subgrupo";
-            tabla.Rows.InsertAt(fila, 0);
+            //DataRow fila = tabla.NewRow();
+            //fila["Cuenta"] = "Seleccione un Subgrupo";
+            //tabla.Rows.InsertAt(fila, 0);
             return tabla;
         }
     }
