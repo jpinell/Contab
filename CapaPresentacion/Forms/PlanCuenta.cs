@@ -1,6 +1,6 @@
 ﻿using CapaNegocios;
 using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace CapaPresentacion.Forms
@@ -9,6 +9,7 @@ namespace CapaPresentacion.Forms
     {
         CN_Grupos grupos = new CN_Grupos();
         CN_Subgrupos subgrupos = new CN_Subgrupos();
+
         public PlanCuenta()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace CapaPresentacion.Forms
         private void PlanCuenta_Load(object sender, EventArgs e)
         {
             MostrarComboGrupos();
+            CargarPlanCuentas();
         }
 
         private void MostrarComboGrupos()
@@ -31,7 +33,6 @@ namespace CapaPresentacion.Forms
             GrupoComboBox.ValueMember = "IDGrupo";
             GrupoComboBox.SelectedIndex = -1;
         }
-
         private void MostrarSubGruposByGrupos(int id)
         {
             SubgrupoComboBox.DataSource = subgrupos.MostrarSubgrupos(id);
@@ -55,7 +56,6 @@ namespace CapaPresentacion.Forms
                 }
             }
         }
-
         private void SubgrupoComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (SubgrupoComboBox.SelectedIndex != -1)
@@ -70,6 +70,11 @@ namespace CapaPresentacion.Forms
                     return;
                 }
             }
+        }
+
+        private void CargarPlanCuentas()
+        {
+            //PlanDataGridView.DataSource = 
         }
     }
 }

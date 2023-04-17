@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.CatalogoDataGridView = new System.Windows.Forms.DataGridView();
+            this.PlanDataGridView = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             this.NaturalezaComboBox = new System.Windows.Forms.ComboBox();
             this.GrupoRadioButton = new System.Windows.Forms.RadioButton();
             this.DetalleRadioButton = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.CatalogoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlanDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -113,16 +113,16 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "label4";
             // 
-            // CatalogoDataGridView
+            // PlanDataGridView
             // 
-            this.CatalogoDataGridView.AllowUserToAddRows = false;
-            this.CatalogoDataGridView.AllowUserToDeleteRows = false;
-            this.CatalogoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.CatalogoDataGridView.Location = new System.Drawing.Point(12, 64);
-            this.CatalogoDataGridView.Name = "CatalogoDataGridView";
-            this.CatalogoDataGridView.ReadOnly = true;
-            this.CatalogoDataGridView.Size = new System.Drawing.Size(687, 443);
-            this.CatalogoDataGridView.TabIndex = 6;
+            this.PlanDataGridView.AllowUserToAddRows = false;
+            this.PlanDataGridView.AllowUserToDeleteRows = false;
+            this.PlanDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PlanDataGridView.Location = new System.Drawing.Point(12, 64);
+            this.PlanDataGridView.Name = "PlanDataGridView";
+            this.PlanDataGridView.ReadOnly = true;
+            this.PlanDataGridView.Size = new System.Drawing.Size(687, 443);
+            this.PlanDataGridView.TabIndex = 6;
             // 
             // label5
             // 
@@ -287,7 +287,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.CatalogoDataGridView);
+            this.Controls.Add(this.PlanDataGridView);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.SubgrupoComboBox);
@@ -300,7 +300,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plan de Cuenta Contables";
             this.Load += new System.EventHandler(this.PlanCuenta_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.CatalogoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlanDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,7 +314,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView CatalogoDataGridView;
+        private System.Windows.Forms.DataGridView PlanDataGridView;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
