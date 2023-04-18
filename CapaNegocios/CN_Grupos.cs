@@ -1,4 +1,6 @@
 ﻿using CapaDatos;
+using CapaEntidades;
+using System.Collections.Generic;
 using System.Data;
 
 namespace CapaNegocios
@@ -10,5 +12,11 @@ namespace CapaNegocios
         {
             return grupos.MostrarGrupos();
         }
+
+        public List<Grupos> ListarGrupos()
+        {
+            return grupos.ListarGrupos();
+        }
+
     }
 }

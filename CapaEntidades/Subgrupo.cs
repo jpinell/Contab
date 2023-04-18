@@ -2,10 +2,10 @@
 
 namespace CapaEntidades
 {
-    public class CE_Subgrupo
+    public class Subgrupo
     {
         public int IDSubgrupo { get; set; }
-        public int Grupo { get; set; }
+        public Grupos oGrupo { get; set; }
         [Required]
         public string Codigo { get; set; }
         [Required]
