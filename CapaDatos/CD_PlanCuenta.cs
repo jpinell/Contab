@@ -52,7 +52,7 @@ namespace CapaDatos
                 CommandType = CommandType.StoredProcedure
             };
             cmd.Parameters.Clear();
-            cmd.Parameters.AddWithValue("@IDPlan", cta.IDPlan);
+            //cmd.Parameters.AddWithValue("@IDPlan", cta.IDPlan);
             cmd.Parameters.AddWithValue("@Nivel", cta.Nivel);
             cmd.Parameters.AddWithValue("@Codigo", cta.Codigo);
             cmd.Parameters.AddWithValue("@Cuenta", cta.Cuenta);

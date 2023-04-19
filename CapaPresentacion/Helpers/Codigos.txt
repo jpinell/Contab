@@ -1,0 +1,20 @@
+﻿RECORRER CON DATATABLE
+foreach (DataRow g in grupos.MostrarGrupos().Rows)
+{
+  var g1 = g["IDGrupo"].ToString();
+  var g2 = g["Cuenta"].ToString();
+
+  foreach (DataRow sg in subgrupos.MostrarSubgrupos().Rows)
+    {
+      var sg1 = sg["Codigo"].ToString();
+      var sg2 = sg["Cuenta"].ToString();
+    }
+}
+
+
+RECORRER CON LISTAS
+foreach (var item in grupos.ListarGrupos())
+{
+  int idg = item.IDGrupo;
+  string ctagrupo = item.Cuenta;
+}

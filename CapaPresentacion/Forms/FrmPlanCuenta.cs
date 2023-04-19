@@ -2,6 +2,7 @@
 using CapaNegocios;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace CapaPresentacion.Forms
@@ -18,22 +19,85 @@ namespace CapaPresentacion.Forms
         public FrmPlanCuenta()
         {
             InitializeComponent();
-
         }
 
         // VARIABLES GLOBALES 
         int vIDGrupo;
         int vIDSubgrupo;
+        int vPresentacion;
+        char vNaturaleza;
+        //*******************
+
+        //VARIABLES PARA INICIALIZAR POR PRIMERA VEZ LOS GRUPOS Y SUBGRUPOS
+        int idg;
+        string ctagrupo;
+        string cod;
+        string ctasubgrupo;
+        // ****************************************************************
 
         private void PlanCuenta_Load(object sender, EventArgs e)
         {
             MostrarComboGrupos();
             CargarPlanCuentas();
-            var sg = subgrupos.MostrarSubgrupos();
+            FormatoGrilla();
+        }
+
+        private void FormatoGrilla()
+        {
+            //PlanDataGridView.CurrentRow.Cells[0].Visible = false;
 
         }
 
-     
+        private void RecuperarGrupo()
+        {
+            foreach (var item in grupos.ListarGrupos())
+            {
+                idg = item.IDGrupo;
+
+                switch (idg)
+                {
+                    case 1:
+                        vPresentacion = 1; break;
+                    case 2:
+                        vPresentacion = 1; break;
+                    case 3:
+                        vPresentacion = 1; break;
+                    default:
+                        vPresentacion = 2; break;
+                }
+
+                ctagrupo = item.Cuenta;
+
+                objEntidad.Nivel = 0;
+                objEntidad.Codigo = idg.ToString();
+                objEntidad.Cuenta = ctagrupo.ToString();
+                objEntidad.Presentacion = vPresentacion;
+                objEntidad.Afectable = false;
+                objEntidad.GrupoAnterior = "0";
+                objEntidad.Naturaleza = ' ';
+                objNegocio.InsertarPlanCuenta(objEntidad);
+
+                RecuperarSubGrupo((int)idg);
+            }
+        }
+
+        private void RecuperarSubGrupo(int idg)
+        {
+            foreach (var item in subgrupos.ListarSubgrupos(idg))
+            {
+                cod = item.Codigo;
+                ctasubgrupo = item.Cuenta;
+
+                objEntidad.Nivel = 0;
+                objEntidad.Codigo = cod;
+                objEntidad.Cuenta = ctasubgrupo.ToString();
+                objEntidad.Presentacion = vPresentacion;
+                objEntidad.Afectable = false;
+                objEntidad.GrupoAnterior = idg.ToString();
+                objEntidad.Naturaleza = ' ';
+                objNegocio.InsertarPlanCuenta(objEntidad);
+            }
+        }
 
         private void MostrarComboGrupos()
         {
@@ -94,23 +158,36 @@ namespace CapaPresentacion.Forms
             }
             else
             {
-                //// RECORREMOS LA TABLA GRUPOS Y SUBGRUPOS
-                //for (int i = 0; i < gr.Count; i++)
-                //{
-                //    gr.Add(gr[i]);
-                //    for (int j = 0; j < sgr.Count; j++)
-                //    {
-                //        sgr.Add(sgr[j]);
-                //    }
-                //}
-
-
-
-                // MAPEAMOS LOS CAMPOS EN LAS ENTIDADES 
-
-                //objEntidad.Codigo = vIDGrupo;
-                //objEntidad.Cuenta =
+                RecuperarGrupo();
+                CargarPlanCuentas();
             }
+        }
+
+        private void PresentacionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (PresentacionComboBox.Text == "BALANCE")
+            {
+                vPresentacion = 1;
+            }
+            else
+            {
+                vPresentacion = 2;
+            }
+            MessageBox.Show(vPresentacion.ToString());
+        }
+
+        private void NaturalezaComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (NaturalezaComboBox.Text == "DEUDORA")
+            {
+                vNaturaleza = 'D';
+            }
+            else
+            {
+                vNaturaleza = 'A';
+            }
+            MessageBox.Show(vNaturaleza.ToString());
         }
     }
 }
