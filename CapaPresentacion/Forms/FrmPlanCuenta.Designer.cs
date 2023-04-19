@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion.Forms
 {
-    partial class PlanCuenta
+    partial class FrmPlanCuenta
     {
         /// <summary>
         /// Required designer variable.

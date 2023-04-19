@@ -6,13 +6,16 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Forms
 {
-    public partial class PlanCuenta : Form
+    public partial class FrmPlanCuenta : Form
     {
 
-        //CN_Grupos grupos = new CN_Grupos();
-        //CN_Subgrupos subgrupos = new CN_Subgrupos();
+        CN_Grupos grupos = new CN_Grupos();
+        CN_Subgrupos subgrupos = new CN_Subgrupos();
 
-        public PlanCuenta()
+        PlanCuenta objEntidad = new PlanCuenta();
+        CN_PlanCuenta objNegocio = new CN_PlanCuenta();
+
+        public FrmPlanCuenta()
         {
             InitializeComponent();
 
@@ -26,20 +29,25 @@ namespace CapaPresentacion.Forms
         {
             MostrarComboGrupos();
             CargarPlanCuentas();
+            var sg = subgrupos.MostrarSubgrupos();
+
         }
+
+     
 
         private void MostrarComboGrupos()
         {
-            List<Grupos> gr = new CN_Grupos().ListarGrupos();
-            GrupoComboBox.DataSource = gr;
+            //List<Grupos> gr = new CN_Grupos().ListarGrupos();
+            GrupoComboBox.DataSource = grupos.MostrarGrupos();
             GrupoComboBox.DisplayMember = "Cuenta";
             GrupoComboBox.ValueMember = "IDGrupo";
             GrupoComboBox.SelectedIndex = -1;
         }
+
         private void MostrarSubGruposByGrupos(int id)
         {
-            List<Subgrupo> sgr = new CN_Subgrupos().ListarSubgrupos(id);
-            SubgrupoComboBox.DataSource = sgr; //subgrupos.MostrarSubgrupos(id);
+            //List<Subgrupos> sgr = new CN_Subgrupos().ListarSubgrupos(id);
+            SubgrupoComboBox.DataSource = subgrupos.MostrarSubgruposByGrupo(id);
             SubgrupoComboBox.DisplayMember = "Cuenta";
             SubgrupoComboBox.ValueMember = "IDSubgrupo";
             SubgrupoComboBox.SelectedIndex = -1;
@@ -78,7 +86,31 @@ namespace CapaPresentacion.Forms
 
         private void CargarPlanCuentas()
         {
-            //PlanDataGridView.DataSource = 
+            List<PlanCuenta> plan = new CN_PlanCuenta().ListarPlanCuenta();
+
+            if (plan.Count > 0)
+            {
+                PlanDataGridView.DataSource = plan;
+            }
+            else
+            {
+                //// RECORREMOS LA TABLA GRUPOS Y SUBGRUPOS
+                //for (int i = 0; i < gr.Count; i++)
+                //{
+                //    gr.Add(gr[i]);
+                //    for (int j = 0; j < sgr.Count; j++)
+                //    {
+                //        sgr.Add(sgr[j]);
+                //    }
+                //}
+
+
+
+                // MAPEAMOS LOS CAMPOS EN LAS ENTIDADES 
+
+                //objEntidad.Codigo = vIDGrupo;
+                //objEntidad.Cuenta =
+            }
         }
     }
 }

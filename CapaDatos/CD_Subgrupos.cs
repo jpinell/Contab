@@ -10,7 +10,25 @@ namespace CapaDatos
     {
         private DataTable tabla = new DataTable();
 
-        public DataTable MostrarSubgrupos(int id)
+
+        public DataTable MostrarSubgrupos()
+        {
+            tabla.Clear();
+            SqlCommand cmd = new SqlCommand("MostrarSubgrupos", Conectar())
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            da.Fill(tabla);
+            Desconectar();
+
+            //DataRow fila = tabla.NewRow();
+            //fila["Cuenta"] = "Seleccione un Subgrupo";
+            //tabla.Rows.InsertAt(fila, 0);
+            da.Dispose();
+            return tabla;
+        }
+        public DataTable MostrarSubgruposByGrupo(int id)
         {
             tabla.Clear();
             SqlCommand cmd = new SqlCommand("MostrarSubgrupoByGrupo", Conectar())
@@ -29,34 +47,38 @@ namespace CapaDatos
             return tabla;
         }
 
-        public List<Subgrupo> ListarSubgrupos(int id)
+        public List<Subgrupos> ListarSubgrupos(int id)
         {
-            List<Subgrupo> lista = new List<Subgrupo>();
+            List<Subgrupos> lista = new List<Subgrupos>();
 
             try
             {
                 string query = "SELECT IDSubgrupo, Grupo, Codigo, Cuenta FROM Subgrupos WHERE Grupo = " + @id;
-                SqlCommand cmd = new SqlCommand(query, Conectar());
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand(query, Conectar())
+                {
+                    CommandType = CommandType.Text
+                };
                 cmd.Parameters.AddWithValue("@Grupo", id);
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    lista.Add(new Subgrupo()
+                    lista.Add(new Subgrupos()
                     {
                         IDSubgrupo = Convert.ToInt32(dr["IDSubgrupo"]),
                         oGrupo = new Grupos()
                         {
-                            IDGrupo = id //Convert.ToInt32(dr["Grupo"]) 
+                            IDGrupo = id
                         },
                         Codigo = dr["Codigo"].ToString(),
                         Cuenta = dr["Cuenta"].ToString()
                     });
                 }
+                dr.Close();
+                Desconectar();
             }
             catch (Exception)
             {
-                return new List<Subgrupo>();
+                return new List<Subgrupos>();
             }
 
             return lista;

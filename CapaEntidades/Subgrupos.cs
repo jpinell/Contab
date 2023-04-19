@@ -2,7 +2,7 @@
 
 namespace CapaEntidades
 {
-    public class Subgrupo
+    public class Subgrupos
     {
         public int IDSubgrupo { get; set; }
         public Grupos oGrupo { get; set; }

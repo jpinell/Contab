@@ -35,8 +35,10 @@ namespace CapaDatos
             try
             {
                 string query = "SELECT IDGrupo, Cuenta FROM Grupos ORDER BY IDGrupo ASC";
-                SqlCommand cmd = new SqlCommand(query, Conectar());
-                cmd.CommandType = CommandType.Text;
+                SqlCommand cmd = new SqlCommand(query, Conectar())
+                {
+                    CommandType = CommandType.Text
+                };
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
