@@ -26,6 +26,7 @@ namespace CapaPresentacion.Forms
         int vIDSubgrupo;
         int vPresentacion;
         char vNaturaleza;
+        bool vAfectable;
         //*******************
 
         //VARIABLES PARA INICIALIZAR POR PRIMERA VEZ LOS GRUPOS Y SUBGRUPOS
@@ -44,8 +45,11 @@ namespace CapaPresentacion.Forms
 
         private void FormatoGrilla()
         {
-            //PlanDataGridView.CurrentRow.Cells[0].Visible = false;
-
+            PlanDataGridView.Columns[0].Visible = false;
+            PlanDataGridView.Columns[3].Width = 300;
+            PlanDataGridView.Columns[4].Visible = false;
+            PlanDataGridView.Columns[6].Visible = false;
+            PlanDataGridView.Columns[7].Visible = false;
         }
 
         private void RecuperarGrupo()
@@ -68,7 +72,7 @@ namespace CapaPresentacion.Forms
 
                 ctagrupo = item.Cuenta;
 
-                objEntidad.Nivel = 0;
+                objEntidad.Nivel = 1;
                 objEntidad.Codigo = idg.ToString();
                 objEntidad.Cuenta = ctagrupo.ToString();
                 objEntidad.Presentacion = vPresentacion;
@@ -88,7 +92,7 @@ namespace CapaPresentacion.Forms
                 cod = item.Codigo;
                 ctasubgrupo = item.Cuenta;
 
-                objEntidad.Nivel = 0;
+                objEntidad.Nivel = 2;
                 objEntidad.Codigo = cod;
                 objEntidad.Cuenta = ctasubgrupo.ToString();
                 objEntidad.Presentacion = vPresentacion;
@@ -155,6 +159,7 @@ namespace CapaPresentacion.Forms
             if (plan.Count > 0)
             {
                 PlanDataGridView.DataSource = plan;
+                TotalCuentasTextBox.Text = plan.Count.ToString();
             }
             else
             {
@@ -188,6 +193,22 @@ namespace CapaPresentacion.Forms
                 vNaturaleza = 'A';
             }
             MessageBox.Show(vNaturaleza.ToString());
+        }
+
+        private void GrupoRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            vAfectable = false;
+        }
+
+        private void DetalleRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            vAfectable = true;
+        }
+
+        private void PlanDataGridView_Click(object sender, EventArgs e)
+        {
+            NivelTextBox.Text = PlanDataGridView.CurrentRow.Cells[1].Value.ToString();
+            GrupoAnteriorTextBox.Text = PlanDataGridView.CurrentRow.Cells[2].Value.ToString();
         }
     }
 }

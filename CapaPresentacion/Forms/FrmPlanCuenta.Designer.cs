@@ -50,6 +50,9 @@
             this.NaturalezaComboBox = new System.Windows.Forms.ComboBox();
             this.GrupoRadioButton = new System.Windows.Forms.RadioButton();
             this.DetalleRadioButton = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
+            this.TotalCuentasTextBox = new System.Windows.Forms.TextBox();
+            this.GuardarButton = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.PlanDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,19 +120,22 @@
             // 
             this.PlanDataGridView.AllowUserToAddRows = false;
             this.PlanDataGridView.AllowUserToDeleteRows = false;
+            this.PlanDataGridView.BackgroundColor = System.Drawing.Color.White;
+            this.PlanDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.PlanDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PlanDataGridView.Location = new System.Drawing.Point(12, 64);
             this.PlanDataGridView.Name = "PlanDataGridView";
             this.PlanDataGridView.ReadOnly = true;
             this.PlanDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PlanDataGridView.Size = new System.Drawing.Size(866, 443);
+            this.PlanDataGridView.Size = new System.Drawing.Size(664, 443);
             this.PlanDataGridView.TabIndex = 6;
+            this.PlanDataGridView.Click += new System.EventHandler(this.PlanDataGridView_Click);
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(955, 64);
+            this.label5.Location = new System.Drawing.Point(747, 64);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 16);
             this.label5.TabIndex = 7;
@@ -139,7 +145,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(946, 105);
+            this.label6.Location = new System.Drawing.Point(738, 105);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(52, 16);
             this.label6.TabIndex = 8;
@@ -149,7 +155,7 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(944, 146);
+            this.label7.Location = new System.Drawing.Point(736, 146);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 16);
             this.label7.TabIndex = 9;
@@ -159,7 +165,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(908, 187);
+            this.label8.Location = new System.Drawing.Point(700, 187);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 16);
             this.label8.TabIndex = 10;
@@ -169,7 +175,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(930, 228);
+            this.label9.Location = new System.Drawing.Point(722, 228);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(68, 16);
             this.label9.TabIndex = 11;
@@ -179,7 +185,7 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(894, 269);
+            this.label10.Location = new System.Drawing.Point(686, 269);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(104, 16);
             this.label10.TabIndex = 12;
@@ -189,7 +195,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(920, 310);
+            this.label11.Location = new System.Drawing.Point(712, 310);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(78, 16);
             this.label11.TabIndex = 13;
@@ -198,16 +204,21 @@
             // GrupoAnteriorTextBox
             // 
             this.GrupoAnteriorTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.GrupoAnteriorTextBox.Location = new System.Drawing.Point(1004, 266);
+            this.GrupoAnteriorTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.GrupoAnteriorTextBox.Location = new System.Drawing.Point(796, 266);
             this.GrupoAnteriorTextBox.Name = "GrupoAnteriorTextBox";
-            this.GrupoAnteriorTextBox.Size = new System.Drawing.Size(100, 23);
+            this.GrupoAnteriorTextBox.ReadOnly = true;
+            this.GrupoAnteriorTextBox.Size = new System.Drawing.Size(81, 23);
             this.GrupoAnteriorTextBox.TabIndex = 14;
+            this.GrupoAnteriorTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // NivelTextBox
             // 
             this.NivelTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.NivelTextBox.Location = new System.Drawing.Point(1004, 61);
+            this.NivelTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.NivelTextBox.Location = new System.Drawing.Point(796, 61);
             this.NivelTextBox.Name = "NivelTextBox";
+            this.NivelTextBox.ReadOnly = true;
             this.NivelTextBox.Size = new System.Drawing.Size(36, 23);
             this.NivelTextBox.TabIndex = 15;
             this.NivelTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -215,7 +226,7 @@
             // CodigoTextBox
             // 
             this.CodigoTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CodigoTextBox.Location = new System.Drawing.Point(1004, 102);
+            this.CodigoTextBox.Location = new System.Drawing.Point(796, 102);
             this.CodigoTextBox.Name = "CodigoTextBox";
             this.CodigoTextBox.Size = new System.Drawing.Size(100, 23);
             this.CodigoTextBox.TabIndex = 16;
@@ -223,7 +234,7 @@
             // CuentaTextBox
             // 
             this.CuentaTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CuentaTextBox.Location = new System.Drawing.Point(1004, 143);
+            this.CuentaTextBox.Location = new System.Drawing.Point(796, 143);
             this.CuentaTextBox.Name = "CuentaTextBox";
             this.CuentaTextBox.Size = new System.Drawing.Size(169, 23);
             this.CuentaTextBox.TabIndex = 17;
@@ -238,7 +249,7 @@
             this.PresentacionComboBox.Items.AddRange(new object[] {
             "BALANCE",
             "RESULTADO"});
-            this.PresentacionComboBox.Location = new System.Drawing.Point(1004, 184);
+            this.PresentacionComboBox.Location = new System.Drawing.Point(796, 184);
             this.PresentacionComboBox.Name = "PresentacionComboBox";
             this.PresentacionComboBox.Size = new System.Drawing.Size(169, 23);
             this.PresentacionComboBox.TabIndex = 18;
@@ -254,7 +265,7 @@
             this.NaturalezaComboBox.Items.AddRange(new object[] {
             "DEUDORA",
             "ACREEDORA"});
-            this.NaturalezaComboBox.Location = new System.Drawing.Point(1004, 307);
+            this.NaturalezaComboBox.Location = new System.Drawing.Point(796, 307);
             this.NaturalezaComboBox.Name = "NaturalezaComboBox";
             this.NaturalezaComboBox.Size = new System.Drawing.Size(169, 23);
             this.NaturalezaComboBox.TabIndex = 19;
@@ -264,32 +275,76 @@
             // 
             this.GrupoRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.GrupoRadioButton.AutoSize = true;
-            this.GrupoRadioButton.Location = new System.Drawing.Point(1005, 226);
+            this.GrupoRadioButton.Location = new System.Drawing.Point(797, 226);
             this.GrupoRadioButton.Name = "GrupoRadioButton";
             this.GrupoRadioButton.Size = new System.Drawing.Size(63, 20);
             this.GrupoRadioButton.TabIndex = 20;
             this.GrupoRadioButton.TabStop = true;
             this.GrupoRadioButton.Text = "Grupo";
             this.GrupoRadioButton.UseVisualStyleBackColor = true;
+            this.GrupoRadioButton.CheckedChanged += new System.EventHandler(this.GrupoRadioButton_CheckedChanged);
             // 
             // DetalleRadioButton
             // 
             this.DetalleRadioButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DetalleRadioButton.AutoSize = true;
-            this.DetalleRadioButton.Location = new System.Drawing.Point(1074, 226);
+            this.DetalleRadioButton.Location = new System.Drawing.Point(866, 226);
             this.DetalleRadioButton.Name = "DetalleRadioButton";
             this.DetalleRadioButton.Size = new System.Drawing.Size(68, 20);
             this.DetalleRadioButton.TabIndex = 21;
             this.DetalleRadioButton.TabStop = true;
             this.DetalleRadioButton.Text = "Detalle";
             this.DetalleRadioButton.UseVisualStyleBackColor = true;
+            this.DetalleRadioButton.CheckedChanged += new System.EventHandler(this.DetalleRadioButton_CheckedChanged);
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(374, 520);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(113, 16);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "TOTAL CUENTAS:";
+            // 
+            // TotalCuentasTextBox
+            // 
+            this.TotalCuentasTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.TotalCuentasTextBox.Location = new System.Drawing.Point(493, 517);
+            this.TotalCuentasTextBox.Name = "TotalCuentasTextBox";
+            this.TotalCuentasTextBox.ReadOnly = true;
+            this.TotalCuentasTextBox.Size = new System.Drawing.Size(51, 23);
+            this.TotalCuentasTextBox.TabIndex = 23;
+            this.TotalCuentasTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // GuardarButton
+            // 
+            this.GuardarButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.GuardarButton.BackColor = System.Drawing.Color.White;
+            this.GuardarButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GuardarButton.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GuardarButton.ForeColor = System.Drawing.Color.Navy;
+            this.GuardarButton.IconChar = FontAwesome.Sharp.IconChar.FloppyDisk;
+            this.GuardarButton.IconColor = System.Drawing.Color.Navy;
+            this.GuardarButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.GuardarButton.Location = new System.Drawing.Point(821, 346);
+            this.GuardarButton.Name = "GuardarButton";
+            this.GuardarButton.Size = new System.Drawing.Size(90, 77);
+            this.GuardarButton.TabIndex = 24;
+            this.GuardarButton.Text = "Guardar";
+            this.GuardarButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.GuardarButton.UseVisualStyleBackColor = false;
             // 
             // FrmPlanCuenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1194, 545);
+            this.ClientSize = new System.Drawing.Size(986, 545);
+            this.Controls.Add(this.GuardarButton);
+            this.Controls.Add(this.TotalCuentasTextBox);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.DetalleRadioButton);
             this.Controls.Add(this.GrupoRadioButton);
             this.Controls.Add(this.NaturalezaComboBox);
@@ -348,5 +403,8 @@
         private System.Windows.Forms.ComboBox NaturalezaComboBox;
         private System.Windows.Forms.RadioButton GrupoRadioButton;
         private System.Windows.Forms.RadioButton DetalleRadioButton;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox TotalCuentasTextBox;
+        private FontAwesome.Sharp.IconButton GuardarButton;
     }
 }
