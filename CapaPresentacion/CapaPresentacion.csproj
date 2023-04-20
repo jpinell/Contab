@@ -66,6 +66,12 @@
     <Compile Include="Forms\Catalogo.Designer.cs">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmPlanCuentaActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPlanCuentaActualizar.Designer.cs">
+      <DependentUpon>FrmPlanCuentaActualizar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Periodos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogo.resx">
       <DependentUpon>Catalogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPlanCuentaActualizar.resx">
+      <DependentUpon>FrmPlanCuentaActualizar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Periodos.resx">
       <DependentUpon>Periodos.cs</DependentUpon>

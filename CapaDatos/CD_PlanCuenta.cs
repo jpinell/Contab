@@ -52,7 +52,6 @@ namespace CapaDatos
                 CommandType = CommandType.StoredProcedure
             };
             cmd.Parameters.Clear();
-            //cmd.Parameters.AddWithValue("@IDPlan", cta.IDPlan);
             cmd.Parameters.AddWithValue("@Nivel", cta.Nivel);
             cmd.Parameters.AddWithValue("@Codigo", cta.Codigo);
             cmd.Parameters.AddWithValue("@Cuenta", cta.Cuenta);
@@ -60,6 +59,39 @@ namespace CapaDatos
             cmd.Parameters.AddWithValue("@Afectable", cta.Afectable);
             cmd.Parameters.AddWithValue("@GrupoAnterior", cta.GrupoAnterior);
             cmd.Parameters.AddWithValue("@Naturaleza", cta.Naturaleza);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            Desconectar();
+        }
+
+        public void ActualizarPlanCuenta(PlanCuenta cta)
+        {
+            SqlCommand cmd = new SqlCommand("UpdatePlanCuenta", Conectar())
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@IDPlan", cta.IDPlan);
+            cmd.Parameters.AddWithValue("@Nivel", cta.Nivel);
+            cmd.Parameters.AddWithValue("@Codigo", cta.Codigo);
+            cmd.Parameters.AddWithValue("@Cuenta", cta.Cuenta);
+            cmd.Parameters.AddWithValue("@Presentacion", cta.Presentacion);
+            cmd.Parameters.AddWithValue("@Afectable", cta.Afectable);
+            cmd.Parameters.AddWithValue("@GrupoAnterior", cta.GrupoAnterior);
+            cmd.Parameters.AddWithValue("@Naturaleza", cta.Naturaleza);
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            Desconectar();
+        }
+
+        public void EliminarPlanCuenta(int id)
+        {
+            SqlCommand cmd = new SqlCommand("DeletePlanCuenta", Conectar())
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@IDPlan", id);
             cmd.ExecuteNonQuery();
             cmd.Dispose();
             Desconectar();

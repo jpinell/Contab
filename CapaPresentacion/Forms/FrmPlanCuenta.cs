@@ -2,7 +2,6 @@
 using CapaNegocios;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Windows.Forms;
 
 namespace CapaPresentacion.Forms
@@ -168,6 +167,12 @@ namespace CapaPresentacion.Forms
             }
         }
 
+        private void MostrarGrilla()
+        {
+            PlanDataGridView.DataSource = objNegocio.ListarPlanCuenta();
+            FormatoGrilla();
+        }
+
         private void PresentacionComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (PresentacionComboBox.Text == "BALANCE")
@@ -178,12 +183,11 @@ namespace CapaPresentacion.Forms
             {
                 vPresentacion = 2;
             }
-            MessageBox.Show(vPresentacion.ToString());
+            //MessageBox.Show(vPresentacion.ToString());
         }
 
         private void NaturalezaComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (NaturalezaComboBox.Text == "DEUDORA")
             {
                 vNaturaleza = 'D';
@@ -192,7 +196,7 @@ namespace CapaPresentacion.Forms
             {
                 vNaturaleza = 'A';
             }
-            MessageBox.Show(vNaturaleza.ToString());
+            //MessageBox.Show(vNaturaleza.ToString());
         }
 
         private void GrupoRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -205,10 +209,66 @@ namespace CapaPresentacion.Forms
             vAfectable = true;
         }
 
+        string sNivel;
         private void PlanDataGridView_Click(object sender, EventArgs e)
         {
-            NivelTextBox.Text = PlanDataGridView.CurrentRow.Cells[1].Value.ToString();
+            string sAfectable = PlanDataGridView.CurrentRow.Cells[5].Value.ToString();
+            bool evaluar = Convert.ToBoolean(sAfectable);
+
+            if (evaluar)
+            {
+                MessageBox.Show("No se puede agregar una cuenta a una de detalle", "Plan de Cuentas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LimpiarCampos();
+                GuardarButton.Enabled = false;
+                return;
+            }
+            GuardarButton.Enabled = true;
+            sNivel = PlanDataGridView.CurrentRow.Cells[1].Value.ToString();
+            objEntidad.Codigo = sNivel;
+            int numero = Convert.ToInt32(sNivel) + 1;
+            NivelTextBox.Text = numero.ToString();
             GrupoAnteriorTextBox.Text = PlanDataGridView.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void GuardarButton_Click(object sender, EventArgs e)
+        {
+            objEntidad.Nivel = Convert.ToInt32(NivelTextBox.Text);
+            objEntidad.Codigo = CodigoTextBox.Text;
+            objEntidad.Cuenta = CuentaTextBox.Text;
+            objEntidad.Presentacion = vPresentacion;
+            objEntidad.Afectable = vAfectable;
+            objEntidad.GrupoAnterior = GrupoAnteriorTextBox.Text;
+            objEntidad.Naturaleza = vNaturaleza;
+
+            objNegocio.InsertarPlanCuenta(objEntidad);
+            MostrarGrilla();
+            MessageBox.Show("Registrado correctamente", "Plan de Cuentas");
+            LimpiarCampos();
+        }
+
+        private void LimpiarCampos()
+        {
+            NivelTextBox.Text = string.Empty;
+            CodigoTextBox.Text = string.Empty;
+            CuentaTextBox.Text = string.Empty;
+            PresentacionComboBox.SelectedIndex = -1;
+            GrupoRadioButton.Checked = false;
+            DetalleRadioButton.Checked = false;
+            GrupoAnteriorTextBox.Text = string.Empty;
+            NaturalezaComboBox.SelectedIndex = -1;
+        }
+
+        private void ActualizarMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPlanCuentaActualizar frm = new FrmPlanCuentaActualizar();
+            frm.IDPlanTextBox.Text = PlanDataGridView.CurrentRow.Cells["IDPlan"].Value.ToString();
+            frm.NivelTextBox.Text = PlanDataGridView.CurrentRow.Cells["Nivel"].Value.ToString();
+            frm.CodigoTextBox.Text = PlanDataGridView.CurrentRow.Cells["Codigo"].Value.ToString();
+            frm.CuentaTextBox.Text = PlanDataGridView.CurrentRow.Cells["Cuenta"].Value.ToString();
+            frm.GrupoAnteriorTextBox.Text = PlanDataGridView.CurrentRow.Cells["GrupoAnterior"].Value.ToString();
+            
+            
+            frm.ShowDialog();
         }
     }
 }

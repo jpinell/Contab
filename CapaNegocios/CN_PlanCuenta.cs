@@ -18,5 +18,15 @@ namespace CapaNegocios
         {
             plan.InsertarPlanCuenta(cta);
         }
+
+        public void ActualizarPlanCuenta(PlanCuenta cta)
+        {
+            plan.ActualizarPlanCuenta(cta);
+        }
+
+        public void EliminarPlanCuenta(int id)
+        {
+            plan.EliminarPlanCuenta(id);
+        }
     }
 }
