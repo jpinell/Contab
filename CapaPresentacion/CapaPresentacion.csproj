@@ -54,6 +54,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\FrmCatalogoTreeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCatalogoTreeView.Designer.cs">
+      <DependentUpon>FrmCatalogoTreeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Empresa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Catalogo.resx">
       <DependentUpon>Catalogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCatalogoTreeView.resx">
+      <DependentUpon>FrmCatalogoTreeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPlanCuentaActualizar.resx">
       <DependentUpon>FrmPlanCuentaActualizar.cs</DependentUpon>

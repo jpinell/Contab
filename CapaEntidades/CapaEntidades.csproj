@@ -54,6 +54,7 @@
     <Compile Include="CE_Estructura.cs" />
     <Compile Include="Grupos.cs" />
     <Compile Include="CE_Periodo.cs" />
+    <Compile Include="Mayor.cs" />
     <Compile Include="PlanCuenta.cs" />
     <Compile Include="Subgrupos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
