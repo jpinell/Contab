@@ -2,7 +2,6 @@
 using CapaNegocios;
 using CapaPresentacion.Helpers;
 using System;
-using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace CapaPresentacion.Forms
@@ -121,7 +120,7 @@ namespace CapaPresentacion.Forms
             objEntidad.Clase = vClase;
             objEntidad.Saldo = 0;
 
-            bool valido = new Helpers.ValidacionDatos(objEntidad).Validate();
+            bool valido = new ValidacionDatos(objEntidad).Validate();
             if (valido)
             {
                 objNegocio.InsertarCatalogo(objEntidad);
@@ -144,7 +143,7 @@ namespace CapaPresentacion.Forms
         {
             if (CatalogoDataGridView.Rows.Count == 0 || CatalogoDataGridView.CurrentRow == null) return;
             vNivel = (int)CatalogoDataGridView.CurrentRow.Cells[1].Value + 1;
-            GrupoTextBox.Text  = (string)CatalogoDataGridView.CurrentRow.Cells[2].Value;
+            GrupoTextBox.Text = (string)CatalogoDataGridView.CurrentRow.Cells[2].Value;
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
