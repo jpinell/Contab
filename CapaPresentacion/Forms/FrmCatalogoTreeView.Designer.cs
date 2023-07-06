@@ -39,6 +39,8 @@
             this.CatalogoTreeView.Name = "CatalogoTreeView";
             this.CatalogoTreeView.Size = new System.Drawing.Size(330, 450);
             this.CatalogoTreeView.TabIndex = 0;
+            this.CatalogoTreeView.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.CatalogoTreeView_BeforeExpand);
+            this.CatalogoTreeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.CatalogoTreeView_AfterSelect);
             // 
             // splitter1
             // 
