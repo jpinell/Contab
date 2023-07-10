@@ -18,3 +18,27 @@ foreach (var item in grupos.ListarGrupos())
   int idg = item.IDGrupo;
   string ctagrupo = item.Cuenta;
 }
+
+private void FrmCatalogoTreeView_Load(object sender, EventArgs e)
+        {
+            var NdRoot = CatalogoTreeView.Nodes.Add("Catalogo");
+            NdRoot.Tag = "R|0";
+            NdRoot.Nodes.Add("Temporal");
+
+            //var Grp = grupos.ListarGrupos();
+            //foreach (Grupos grupo in Grp)
+            //{
+            //    var NdGrupo = NdRoot.Nodes.Add(grupo.Cuenta);
+            //    var Sub = subgrupos.ListarSubgrupos(grupo.IDGrupo);     
+            //    foreach (Subgrupos subgrupo in Sub)
+            //    {
+            //        var NdSubGrupo = NdGrupo.Nodes.Add(subgrupo.Cuenta);
+            //        var may = mayor.ListarMayor(subgrupo.IDSubgrupo);
+            //        foreach (Mayor mayor in may)
+            //        {
+            //            var NdMay = NdSubGrupo.Nodes.Add(mayor.Cuenta);
+                        
+            //        }
+            //    }
+            //}
+        }

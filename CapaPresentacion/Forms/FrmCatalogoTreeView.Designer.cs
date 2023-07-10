@@ -30,6 +30,7 @@
         {
             this.CatalogoTreeView = new System.Windows.Forms.TreeView();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // CatalogoTreeView
@@ -50,17 +51,27 @@
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
+            // textBox1
+            // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(349, 47);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(209, 20);
+            this.textBox1.TabIndex = 2;
+            // 
             // FrmCatalogoTreeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.CatalogoTreeView);
             this.Name = "FrmCatalogoTreeView";
             this.Text = "Catalogo de Cuentas";
             this.Load += new System.EventHandler(this.FrmCatalogoTreeView_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -68,5 +79,6 @@
 
         private System.Windows.Forms.TreeView CatalogoTreeView;
         private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

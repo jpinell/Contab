@@ -26,7 +26,7 @@ namespace CapaPresentacion.Forms
             //foreach (Grupos grupo in Grp)
             //{
             //    var NdGrupo = NdRoot.Nodes.Add(grupo.Cuenta);
-            //    var Sub = subgrupos.ListarSubgrupos(grupo.IDGrupo);     
+            //    var Sub = subgrupos.ListarSubgrupos(grupo.IDGrupo);
             //    foreach (Subgrupos subgrupo in Sub)
             //    {
             //        var NdSubGrupo = NdGrupo.Nodes.Add(subgrupo.Cuenta);
@@ -34,7 +34,7 @@ namespace CapaPresentacion.Forms
             //        foreach (Mayor mayor in may)
             //        {
             //            var NdMay = NdSubGrupo.Nodes.Add(mayor.Cuenta);
-                        
+
             //        }
             //    }
             //}
@@ -52,7 +52,7 @@ namespace CapaPresentacion.Forms
                     {
                         var NdGrupo = e.Node.Nodes.Add(grupo.Cuenta);
                         NdGrupo.Tag = "G|" + grupo.IDGrupo.ToString();
-                        NdGrupo.Nodes.Add("Temporal");
+                        NdGrupo.Nodes.Add("Temporal"); 
                     }
                     break;
                 case "G":
@@ -70,6 +70,7 @@ namespace CapaPresentacion.Forms
                     {
                         var NdMayor = e.Node.Nodes.Add(mayor.Cuenta);
                         NdMayor.Tag = "M|" + mayor.IDMayor.ToString();
+
                     }
                     break;
             }
@@ -77,7 +78,8 @@ namespace CapaPresentacion.Forms
 
         private void CatalogoTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            MessageBox.Show("Has pulsado en " + e.Node.ToString());
+            //MessageBox.Show("Has pulsado en " + "\n" + e.Node.ToString());
+            MessageBox.Show("Has pulsado en " + "\n" + e.Node.Text + " " + e.Node.Tag);
         }
     }
 }
